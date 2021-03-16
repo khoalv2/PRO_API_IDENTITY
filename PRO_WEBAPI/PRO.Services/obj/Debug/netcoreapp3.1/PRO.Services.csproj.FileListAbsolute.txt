@@ -1,0 +1,12 @@
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\bin\Debug\netcoreapp3.1\PRO.Services.deps.json
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\bin\Debug\netcoreapp3.1\PRO.Services.dll
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\bin\Debug\netcoreapp3.1\PRO.Services.pdb
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\bin\Debug\netcoreapp3.1\PRO.Core.dll
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\bin\Debug\netcoreapp3.1\PRO.Core.pdb
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.csprojAssemblyReference.cache
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.csproj.CoreCompileInputs.cache
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.AssemblyInfoInputs.cache
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.AssemblyInfo.cs
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.csproj.CopyComplete
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.dll
+D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Services\obj\Debug\netcoreapp3.1\PRO.Services.pdb
