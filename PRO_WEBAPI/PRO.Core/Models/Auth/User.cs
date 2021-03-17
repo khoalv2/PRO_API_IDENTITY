@@ -9,6 +9,8 @@ namespace PRO.Core.Models.Auth
     {
         public string FirstName { get; set; }
         public string LasttName { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTimeOffset RefreshTokenExpiryTime { get; set; }
 
     }
 }
