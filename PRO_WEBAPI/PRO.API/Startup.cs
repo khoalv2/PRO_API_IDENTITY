@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Hangfire;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +38,10 @@ namespace PRO.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //add hangfire
+            services.AddHangfire(x => x.UseSqlServerStorage(
+               Configuration.GetConnectionString("Hangfire")));
+            services.AddHangfireServer();
             services.AddControllers();
 
             //add dependence
@@ -55,24 +62,6 @@ namespace PRO.API
             //add swagger
             services.AddSwaggerGen(options =>
             {
-                //options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                //{
-                //    Description = "JWT containing userid claim",
-                //    Name = "Authorization",
-                //    In = ParameterLocation.Header,
-                //    Type = SecuritySchemeType.ApiKey,
-                //});
-
-                //var security = new OpenApiSecurityRequirement{ {new OpenApiSecurityScheme{
-                //Reference = new OpenApiReference
-                //{
-                //    Id = JwtBearerDefaults.AuthenticationScheme,
-                //    Type = ReferenceType.SecurityScheme
-                //},UnresolvedReference = true }, new List<string>() }
-                //};
-                //options.AddSecurityRequirement(security);
-
-
                 // Include 'SecurityScheme' to use JWT Authentication
                 var jwtSecurityScheme = new OpenApiSecurityScheme
                 {
@@ -137,8 +126,6 @@ namespace PRO.API
 
             app.UseRouting();
 
-
-
             //config authorization attribute
             app.UseAuth();
 
@@ -146,6 +133,35 @@ namespace PRO.API
             {
                 endpoints.MapControllers();
             });
+
+            //add hangfire
+            app.UseHangfireDashboard("/mydashboard");
+            app.UseHangfireServer();
+
+            // BackgroundJob.Enqueue(() => Console.WriteLine("Hello, world!"));
+
+            //var jobId = BackgroundJob.Schedule(
+            //    () => Console.WriteLine("Delayed!"),
+            //    TimeSpan.FromMinutes(1));
+
+            //BackgroundJob.ContinueJobWith(
+            //    jobId,
+            //    () => Console.WriteLine("Continuation!"));
+
+
+            //using(HttpClient client = new HttpClient())
+            //            {
+            //                RecurringJob.AddOrUpdate(
+            //               () => client.PostAsync("1231")), Cron.Minutely);
+            //            }
+
+
+            //Set Recurring job Hangfire
+            //using (HttpClient client = new HttpClient())
+            //{
+
+            //    RecurringJob.AddOrUpdate(() => client.GetAsync("http://localhost:5000/api/Music/unsubscribe"), Cron.Minutely);
+            //}
 
             //config swagger
             app.UseSwagger();

@@ -13,7 +13,7 @@ using PRO.Core.Services;
 
 namespace PRO.API.Controllers
 {
-
+    
     [Route("api/[controller]")]
     [ApiController]
     public class MusicController : ControllerBase
@@ -25,6 +25,19 @@ namespace PRO.API.Controllers
             _musicService = musicService;
             _mapper = mapper;
         }
+
+     
+        //[Route("unsubscribe")]
+        //public async Task Unsubscribe()
+        //{
+        //    //var jobId = BackgroundJob.Enqueue(() => UnsubscribeUser(userName));
+        //    //BackgroundJob.ContinueJobWith(jobId, () => Console.WriteLine($"Sent Confirmation Mail to {userName}"));
+        //   // return Ok($"Unsubscribed-Cron-job");
+
+        //    Console.WriteLine("xin chao")
+
+        //}
+
 
         [Authorize]
         [HttpGet()]
