@@ -10,7 +10,7 @@ namespace PRO.Core
     {
         IMusicRepository Musics { get; }
         IArtistRepository Artists { get; }
-
+        INotificatioinRepository Notifications { get; }
         IEmployeeRepository Employees { get; }
         Task<int> CommitAsync();
     }

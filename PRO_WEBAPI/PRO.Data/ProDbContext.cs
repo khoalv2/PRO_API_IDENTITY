@@ -10,12 +10,12 @@ using System.Text;
 
 namespace PRO.Data
 {
-    public class ProDbContext : IdentityDbContext<User,Role,Guid>
+    public class ProDbContext : IdentityDbContext<User, Role, Guid>
     {
 
         public DbSet<Music> Musics { get; set; }
         public DbSet<Artist> Artists { get; set; }
-        //public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public ProDbContext(DbContextOptions<ProDbContext> options) : base(options)
         {

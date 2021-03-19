@@ -14,6 +14,7 @@ namespace PRO.Data
 
         public IArtistRepository _artistRepository;
         public IEmployeeRepository _employeeRepository;
+        public INotificatioinRepository _notificatioins;
         private readonly ProDbContext _context;
 
         public IMusicRepository Musics => _musicRepository = _musicRepository ?? new MusicRepository(_context);
@@ -21,6 +22,7 @@ namespace PRO.Data
         public IArtistRepository Artists => _artistRepository = _artistRepository ?? new ArtistRepository(_context);
 
         public IEmployeeRepository Employees => _employeeRepository = _employeeRepository ?? new EmployeeRepository(_context);
+        public INotificatioinRepository Notifications => _notificatioins = _notificatioins ?? new NotificationRepository(_context);
 
 
         public UnitOfWork(ProDbContext context)

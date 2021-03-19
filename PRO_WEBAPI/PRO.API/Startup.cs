@@ -24,6 +24,7 @@ using PRO.Core.Models.Auth;
 using PRO.Core.Services;
 using PRO.Data;
 using PRO.Services;
+using PRO.Services.SignalR;
 
 namespace PRO.API
 {
@@ -49,7 +50,7 @@ namespace PRO.API
             services.AddTransient<IMusicService, MusicService>();
             services.AddTransient<IArtistService, ArtistService>();
             services.AddTransient<IEmployeeService, EmployeeService>();
-
+            services.AddTransient<INotificationService, NotificationService>();
 
 
             //add Db context
@@ -137,10 +138,10 @@ namespace PRO.API
             app.UseAuth();
 
             //config signalR 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapHub<BroadcastHub>("/notify");
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<BroadcastHub>("/notify");
+            });
 
 
             app.UseEndpoints(endpoints =>

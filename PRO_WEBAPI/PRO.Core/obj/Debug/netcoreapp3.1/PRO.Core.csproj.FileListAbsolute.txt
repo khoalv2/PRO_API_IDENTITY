@@ -7,12 +7,3 @@ D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Cor
 D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.dll
 D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.pdb
 D:\PROJECT\STRUCTURE\WEB_API\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.csproj.CoreCompileInputs.cache
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\bin\Debug\netcoreapp3.1\PRO.Core.deps.json
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\bin\Debug\netcoreapp3.1\PRO.Core.dll
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\bin\Debug\netcoreapp3.1\PRO.Core.pdb
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.csprojAssemblyReference.cache
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.csproj.CoreCompileInputs.cache
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.AssemblyInfoInputs.cache
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.AssemblyInfo.cs
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.dll
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.Core\obj\Debug\netcoreapp3.1\PRO.Core.pdb

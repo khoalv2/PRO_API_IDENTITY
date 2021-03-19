@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace PRO.Core.Services
 {
-   public interface IEmployeeService
+  public  interface INotificationService
     {
-        Task<IEnumerable<Employee>> GetEmployee();
-        Task AddEmployee(Employee employee);
+        Task AddNotification(Notification notification);
     }
 }
