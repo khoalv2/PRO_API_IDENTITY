@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PRO.Core;
+using PRO.Core.Models;
 using PRO.Core.Models.Auth;
 using PRO.Data.Configurations;
 using System;
@@ -14,7 +15,8 @@ namespace PRO.Data
 
         public DbSet<Music> Musics { get; set; }
         public DbSet<Artist> Artists { get; set; }
-
+        //public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public ProDbContext(DbContextOptions<ProDbContext> options) : base(options)
         {
 

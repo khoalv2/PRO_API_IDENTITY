@@ -48,6 +48,9 @@ namespace PRO.API
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IMusicService, MusicService>();
             services.AddTransient<IArtistService, ArtistService>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
+
+
 
             //add Db context
             services.AddDbContext<ProDbContext>
@@ -112,7 +115,11 @@ namespace PRO.API
             //add config authorization 
             var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
             services.AddAuth(jwtSettings);
+
+            //add signalR
+            services.AddSignalR();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -128,6 +135,13 @@ namespace PRO.API
 
             //config authorization attribute
             app.UseAuth();
+
+            //config signalR 
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapHub<BroadcastHub>("/notify");
+            //});
+
 
             app.UseEndpoints(endpoints =>
             {

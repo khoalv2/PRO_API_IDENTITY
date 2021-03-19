@@ -13,11 +13,15 @@ namespace PRO.Data
         public IMusicRepository _musicRepository;
 
         public IArtistRepository _artistRepository;
+        public IEmployeeRepository _employeeRepository;
         private readonly ProDbContext _context;
 
         public IMusicRepository Musics => _musicRepository = _musicRepository ?? new MusicRepository(_context);
 
         public IArtistRepository Artists => _artistRepository = _artistRepository ?? new ArtistRepository(_context);
+
+        public IEmployeeRepository Employees => _employeeRepository = _employeeRepository ?? new EmployeeRepository(_context);
+
 
         public UnitOfWork(ProDbContext context)
         {

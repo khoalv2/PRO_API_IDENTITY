@@ -331,6 +331,3 @@ D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\bin\Debug\netcoreapp3.1\
 D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
 D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\obj\Debug\netcoreapp3.1\PRO.API.csproj.CoreCompileInputs.cache
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\obj\Debug\netcoreapp3.1\PRO.API.MvcApplicationPartsAssemblyInfo.cs
-D:\PROJECT\STRUCTURE\WEBAPI_IDENTITY\PRO_WEBAPI\PRO.API\obj\Debug\netcoreapp3.1\PRO.API.MvcApplicationPartsAssemblyInfo.cache
