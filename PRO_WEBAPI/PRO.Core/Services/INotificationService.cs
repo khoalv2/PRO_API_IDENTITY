@@ -9,5 +9,9 @@ namespace PRO.Core.Services
   public  interface INotificationService
     {
         Task AddNotification(Notification notification);
+
+        Task<int> GetNotificationCount();
+
+        Task<IEnumerable<Notification>> GetNotificationMessage();
     }
 }

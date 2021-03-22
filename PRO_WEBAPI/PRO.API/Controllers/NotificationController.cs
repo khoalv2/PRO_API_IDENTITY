@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PRO.API.Models;
+using PRO.Core.Models;
 using PRO.Core.Services;
 
 namespace PRO.API.Controllers
@@ -22,34 +23,25 @@ namespace PRO.API.Controllers
             _notificationService = notificationService;
         }
 
-        //// GET: api/Notifications/notificationcount  
-        //[Route("notificationcount")]
-        //[HttpGet]
-        //public async Task<ActionResult<NotificationCountResult>> GetNotificationCount()
-        //{
-        //    var count = (from not in _context.Notification
-        //                 select not).CountAsync();
-        //    NotificationCountResult result = new NotificationCountResult
-        //    {
-        //        Count = await count
-        //    };
-        //    return result;
-        //}
+        // GET: api/Notifications/notificationcount  
+        [Route("notificationcount")]
+        [HttpGet]
+        public async Task<int> GetNotificationCount()
+        {
+            return await _notificationService.GetNotificationCount();
+        }
 
-        //// GET: api/Notifications/notificationresult  
-        //[Route("notificationresult")]
-        //[HttpGet]
-        //public async Task<ActionResult<List<NotificationResult>>> GetNotificationMessage()
-        //{
-        //    var results = from message in _context.Notification
-        //                  orderby message.Id descending
-        //                  select new NotificationResult
-        //                  {
-        //                      EmployeeName = message.EmployeeName,
-        //                      TranType = message.TranType
-        //                  };
-        //    return await results.ToListAsync();
-        //}
+        // GET: api/Notifications/notificationresult  
+        [Route("notificationresult")]
+        [HttpGet]
+        public async Task<IEnumerable<NotificationResult>> GetNotificationMessage()
+        {
+            var results = await _notificationService.GetNotificationMessage();
+
+            var reval = _mapper.Map<IEnumerable<Notification>,IEnumerable<NotificationResult>>(results);
+
+            return reval;
+        }
 
     }
 }

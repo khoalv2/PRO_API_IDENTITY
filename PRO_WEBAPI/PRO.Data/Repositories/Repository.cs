@@ -42,6 +42,11 @@ namespace PRO.Data.Repositories
             return Context.Set<TEntity>().FindAsync(id);
         }
 
+        public ValueTask<TEntity> GetByStringIdAsync(string id)
+        {
+            return Context.Set<TEntity>().FindAsync(id);
+        }
+
         public void Remove(TEntity entity)
         {
             Context.Set<TEntity>().Remove(entity);

@@ -51,6 +51,7 @@ namespace PRO.API.Controllers
             try
             {
                 await _employeeService.AddEmployee(employee);
+
                 await _hubContext.Clients.All.BroadcastMessage();
             }
             catch (Exception ex)
@@ -60,6 +61,40 @@ namespace PRO.API.Controllers
 
             return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
         }
+
+
+
+        [HttpDelete("{employeeId}")]
+
+        public async Task<ActionResult<Employee>> DeleteEmployee(string employeeId)
+        {
+            var employee = await _employeeService.GetEmployeeDetail(employeeId);
+
+            if (employee == null)
+            {
+                return NotFound($"Employee with Id = {employeeId} not found");
+            }
+
+            Notification notification = new Notification()
+            {
+                EmployeeName = employee.Name,
+                TranType = "Delete"
+            };
+            await _notificationService.AddNotification(notification);
+
+            try
+            {
+                 _employeeService.DeleteEmployee(employee);
+                await _hubContext.Clients.All.BroadcastMessage();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+        }
+
 
     }
 }

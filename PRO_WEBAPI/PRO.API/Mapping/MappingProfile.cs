@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using PRO.API.Models;
 using PRO.API.Resources;
 using PRO.Core;
+using PRO.Core.Models;
 using PRO.Core.Models.Auth;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,9 @@ namespace PRO.API.Mapping
             CreateMap<SaveMusicResource, Music>();
 
             CreateMap<UserSignUpResource, User>().ForMember(x => x.UserName,x => x.MapFrom(a => a.Email));
+
+            CreateMap<Notification, NotificationResult>().ForMember(x => x.EmployeeName, x => x.MapFrom(a => a.TranType));
+
 
         }
     }

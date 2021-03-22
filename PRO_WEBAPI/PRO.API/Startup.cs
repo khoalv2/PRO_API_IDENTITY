@@ -30,6 +30,8 @@ namespace PRO.API
 {
     public class Startup
     {
+       readonly string MyAllowSpecificOrigins = "MyPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -119,6 +121,30 @@ namespace PRO.API
 
             //add signalR
             services.AddSignalR();
+
+
+            //add cors 
+            //services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            //{
+            //    builder.AllowAnyOrigin()
+            //           .AllowAnyMethod()
+            //           .AllowAnyHeader()
+            //           .AllowCredentials()
+            //           .WithOrigins("http://localhost:4200");
+            //}));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200")
+                                       .AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowCredentials();
+                                  });
+            });
+
         }
 
 
@@ -133,6 +159,9 @@ namespace PRO.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //Enable Cors 
+            app.UseCors(MyAllowSpecificOrigins);
 
             //config authorization attribute
             app.UseAuth();
