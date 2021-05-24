@@ -156,6 +156,9 @@ namespace PRO.API
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.UseWelcomePage();  
+   
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -172,6 +175,13 @@ namespace PRO.API
                 endpoints.MapHub<BroadcastHub>("/notify");
             });
 
+            //config swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.RoutePrefix = "";
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Music V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
@@ -207,13 +217,7 @@ namespace PRO.API
             //    RecurringJob.AddOrUpdate(() => client.GetAsync("http://localhost:5000/api/Music/unsubscribe"), Cron.Minutely);
             //}
 
-            //config swagger
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.RoutePrefix = "";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Music V1");
-            });
+           
         }
     }
 }

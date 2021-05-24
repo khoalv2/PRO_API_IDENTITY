@@ -1,4 +1,5 @@
 ﻿using PRO.Core;
+using PRO.Core.Filter;
 using PRO.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -29,10 +30,10 @@ namespace PRO.Services
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task<IEnumerable<Music>> GetAllWithArtist()
+        public async Task<IEnumerable<Music>> GetAllWithArtist(PaginationFilter filter)
         {
             return await _unitOfWork.Musics
-                .GetAllWithArtistAsync();
+                .GetAllWithArtistAsync(filter);
         }
 
         public async Task<Music> GetMusicById(int id)

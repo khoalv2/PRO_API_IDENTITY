@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using PRO.API.Resources;
 using PRO.API.Validators;
 using PRO.Core;
+using PRO.Core.Filter;
 using PRO.Core.Services;
+using PRO.Core.Wrappers;
 
 namespace PRO.API.Controllers
 {
@@ -39,13 +41,14 @@ namespace PRO.API.Controllers
         //}
 
 
-        [Authorize]
+       // [Authorize]
         [HttpGet()]
-        public async Task<ActionResult<IEnumerable<Music>>> GetAllMusics()
+        public async Task<ActionResult<Music>> GetAllMusics([FromQuery] PaginationFilter filter)
         {
-            var musics = await _musicService.GetAllWithArtist();
+            var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+            var musics = await _musicService.GetAllWithArtist(validFilter);
             var musicsResource = _mapper.Map<IEnumerable<Music>, IEnumerable<MusicResource>>(musics);
-            return Ok(musicsResource);
+            return Ok(new PagedResponse<IEnumerable<MusicResource>>(musicsResource, validFilter.PageNumber, validFilter.PageSize,musicsResource.Count()));
         }
 
 

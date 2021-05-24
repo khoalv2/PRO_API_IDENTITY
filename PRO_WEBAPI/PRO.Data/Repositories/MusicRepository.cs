@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PRO.Core;
+using PRO.Core.Filter;
 using PRO.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,12 @@ namespace PRO.Data.Repositories
         {
         }
 
-        public async Task<IEnumerable<Music>> GetAllWithArtistAsync()
+        public async Task<IEnumerable<Music>> GetAllWithArtistAsync(PaginationFilter filter)
         {
-            return await ProDbContext.Musics.Include(x => x.Artist).ToListAsync();
+            return await ProDbContext.Musics.Include(x => x.Artist)
+                 .Skip((filter.PageNumber - 1) * filter.PageSize)
+                 .Take(filter.PageSize)
+                .ToListAsync();
         }
 
         public async Task<Music> GetWithArtistByIdAsync(int id)
