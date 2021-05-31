@@ -15,7 +15,7 @@ using PRO.Core.Wrappers;
 
 namespace PRO.API.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class MusicController : ControllerBase
@@ -28,7 +28,7 @@ namespace PRO.API.Controllers
             _mapper = mapper;
         }
 
-     
+
         //[Route("unsubscribe")]
         //public async Task Unsubscribe()
         //{
@@ -41,17 +41,22 @@ namespace PRO.API.Controllers
         //}
 
 
-       // [Authorize]
+        // [Authorize]
         [HttpGet()]
         public async Task<ActionResult<Music>> GetAllMusics([FromQuery] PaginationFilter filter)
         {
+
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
             var musics = await _musicService.GetAllWithArtist(validFilter);
             var musicsResource = _mapper.Map<IEnumerable<Music>, IEnumerable<MusicResource>>(musics);
-            return Ok(new PagedResponse<IEnumerable<MusicResource>>(musicsResource, validFilter.PageNumber, validFilter.PageSize,musicsResource.Count()));
+
+            var x = 0;
+            var y = 1 / x;
+
+            return Ok(new PagedResponse<IEnumerable<MusicResource>>(musicsResource, validFilter.PageNumber, validFilter.PageSize, musicsResource.Count()));
         }
 
-
+        [Authorize]
         [HttpPost("")]
         public async Task<ActionResult<MusicResource>> CreateMusic([FromBody] SaveMusicResource saveMusicResource)
         {

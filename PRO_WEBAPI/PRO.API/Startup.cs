@@ -18,6 +18,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PRO.API.Extensions;
+using PRO.API.Middlewares;
 using PRO.API.Settings;
 using PRO.Core;
 using PRO.Core.Models.Auth;
@@ -123,6 +124,7 @@ namespace PRO.API
             services.AddSignalR();
 
 
+
             //add cors 
             //services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             //{
@@ -169,11 +171,25 @@ namespace PRO.API
             //config authorization attribute
             app.UseAuth();
 
+            //middleware handle exception
+            app.UseMiddleware<ErrorHandlerMiddleware>();
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+
             //config signalR 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<BroadcastHub>("/notify");
             });
+
+            //add hangfire
+            app.UseHangfireDashboard("/mydashboard");
+            app.UseHangfireServer();
 
             //config swagger
             app.UseSwagger();
@@ -183,14 +199,6 @@ namespace PRO.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Music V1");
             });
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
-            //add hangfire
-            app.UseHangfireDashboard("/mydashboard");
-            app.UseHangfireServer();
 
             // BackgroundJob.Enqueue(() => Console.WriteLine("Hello, world!"));
 
@@ -217,7 +225,7 @@ namespace PRO.API
             //    RecurringJob.AddOrUpdate(() => client.GetAsync("http://localhost:5000/api/Music/unsubscribe"), Cron.Minutely);
             //}
 
-           
+
         }
     }
 }
